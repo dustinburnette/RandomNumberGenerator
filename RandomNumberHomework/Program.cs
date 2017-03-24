@@ -15,34 +15,61 @@ namespace RandomNumberHomework
             int winningNumber = random.Next(1, 101);
             int parsedGuess = 0;
             bool answer = false;
+            int numberOfGuesses = 0;
+
+           
         
 
             Console.WriteLine("I am thinking of a number between 1-100, can you guess it?");
 
-            while (!answer) {
+            while (!answer)
+            {
 
                 string guess = Console.ReadLine();
-
-                if (int.TryParse(guess, out parsedGuess)) {
+               
+                if (int.TryParse(guess, out parsedGuess))
+                {
 
                     if (parsedGuess > winningNumber)
                     {
+                        numberOfGuesses++;
                         Console.WriteLine("No the number I'm thinking of is lower than " + parsedGuess + " Try again.");
                     }
                     else if (parsedGuess < winningNumber)
                     {
+                        numberOfGuesses++;
                         Console.WriteLine("No the number I'm thinking of is higher than " + parsedGuess + " Try again.");
                     }
+                    if (numberOfGuesses > 4)
+                    {
+                        Console.WriteLine("Too many attempts, you lose.");
+                        Environment.Exit(0);
+                    }
+                    HashSet<int> twice = new HashSet<int>();
+                    if (parsedGuess.Equals(parsedGuess))
+                    {
+                        if (twice.Contains(parsedGuess))
+                        {
+                            Console.WriteLine("Are you feeling well? You tried that.");
+                        }
+                    }
+
                 }
                 else
                 {
                     answer = true;
                     Console.WriteLine("You guessed it right!");
+
+
+                    
+
                 }
 
-
             }
-
+               
+            
+           
+         
 
 
 
