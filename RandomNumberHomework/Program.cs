@@ -30,6 +30,11 @@ namespace RandomNumberHomework
                 if (int.TryParse(guess, out parsedGuess))
                 {
 
+                   // if (parsedGuess)
+                   //{                       
+                   //     Console.WriteLine("Are you feeling well? You tried that."); 
+                   // }
+
                     if (parsedGuess > winningNumber)
                     {
                         numberOfGuesses++;
@@ -45,14 +50,8 @@ namespace RandomNumberHomework
                         Console.WriteLine("Too many attempts, you lose.");
                         Environment.Exit(0);
                     }
-                    HashSet<int> twice = new HashSet<int>();
-                    if (parsedGuess.Equals(parsedGuess))
-                    {
-                        if (twice.Contains(parsedGuess))
-                        {
-                            Console.WriteLine("Are you feeling well? You tried that.");
-                        }
-                    }
+                    
+                    
 
                 }
                 else
