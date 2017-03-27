@@ -17,23 +17,20 @@ namespace RandomNumberHomework
             bool answer = false;
             int numberOfGuesses = 0;
 
-           
-        
-
+          
             Console.WriteLine("I am thinking of a number between 1-100, can you guess it?");
 
             while (!answer)
             {
-
                 string guess = Console.ReadLine();
                
-                if (int.TryParse(guess, out parsedGuess))
+                if (int.TryParse(guess, out parsedGuess) && (parsedGuess > 0 && parsedGuess <= 100))
                 {
 
-                   // if (parsedGuess)
-                   //{                       
-                   //     Console.WriteLine("Are you feeling well? You tried that."); 
-                   // }
+                    // if (parsedGuess)
+                    //{                       
+                    //     Console.WriteLine("Are you feeling well? You tried that."); 
+                    // }
 
                     if (parsedGuess > winningNumber)
                     {
@@ -45,23 +42,21 @@ namespace RandomNumberHomework
                         numberOfGuesses++;
                         Console.WriteLine("No the number I'm thinking of is higher than " + parsedGuess + " Try again.");
                     }
+                    else if (parsedGuess == winningNumber)
+                    {
+                        Console.WriteLine("You're correct, you win!");
+                        Environment.Exit(0);
+                    }
                     if (numberOfGuesses > 4)
                     {
                         Console.WriteLine("Too many attempts, you lose.");
                         Environment.Exit(0);
                     }
-                    
-                    
-
-                }
+                } 
+              
                 else
                 {
-                    answer = true;
-                    Console.WriteLine("You guessed it right!");
-
-
-                    
-
+                    Console.WriteLine("That is not a valid number");
                 }
 
             }
